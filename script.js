@@ -41,13 +41,13 @@ form.onsubmit = (event) =>{
 
        switch (currency.value) {
         case "USD":
-         var convert = ( amount.value * rates.USD).toFixed(2); 
+         var convert = ( amount.value / rates.USD).toFixed(2); 
             break;
         case "EUR":
-            var convert = ( amount.value * rates.EUR).toFixed(2); 
+            var convert = ( amount.value / rates.EUR).toFixed(2); 
             break;
         case "GBP":
-            var convert = ( amount.value * rates.GBP).toFixed(2); 
+            var convert = ( amount.value / rates.GBP).toFixed(2); 
             break;
           
             
@@ -57,7 +57,7 @@ form.onsubmit = (event) =>{
 // formatação do valor convertido para o padrão BRL
  const formatted = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
-        currency: currency.value
+        currency: "BRL"
     }).format(convert);
     
     footer.classList.add("show-result"); 
